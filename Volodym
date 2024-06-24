@@ -91,23 +91,15 @@ do
     })
 
     Tabs.Main:AddParagraph({
-        Title = "Phantom Forces",
-        Content = "Phantom Forces Scripts"
+        Title = "Arsenal",
+        Content = "Arsenal Scripts"
     })
 
     Tabs.Main:AddButton({
-        Title = "Homohack",
+        Title = "MySploit",
         Description = "",
         Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "DeleteMob",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobV2.lua", true))()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua"), true))()
         end
     })
 
@@ -125,15 +117,65 @@ do
     })
 
     Tabs.Main:AddParagraph({
-        Title = "Arsenal",
-        Content = "Arsenal Scripts"
+        Title = "Build A Boat For Treasure",
+        Content = "Build A Boat For Treasure Scripts"
     })
 
     Tabs.Main:AddButton({
-        Title = "MySploit",
+        Title = "Quartyz Hub",
         Description = "",
         Callback = function()
-        loadstring(game:HttpGet(("https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua"), true))()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Zeerox Hub ",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua')()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Batus Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft"))()
+        end
+    })
+
+    Tabs.Main:AddParagraph({
+        Title = "Counter Blox",
+        Content = "Counter Blox Scripts"
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Galaxy Skid",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
+        end
+    })
+
+    Tabs.Main:AddParagraph({
+        Title = "Kat",
+        Content = "Kat Scripts"
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Lime X",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/lxnnydev/PublicScripts/main/limexkat.lua'),true))()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Kat Fucker",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/6G9GfqjC'),true))()
         end
     })
 
@@ -168,52 +210,23 @@ do
     })
 
     Tabs.Main:AddParagraph({
-        Title = "Kat",
-        Content = "Kat Scripts"
+        Title = "Phantom Forces",
+        Content = "Phantom Forces Scripts"
     })
 
     Tabs.Main:AddButton({
-        Title = "Lime X",
+        Title = "Homohack",
         Description = "",
         Callback = function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/lxnnydev/PublicScripts/main/limexkat.lua'),true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
         end
     })
 
     Tabs.Main:AddButton({
-        Title = "Kat Fucker",
+        Title = "DeleteMob",
         Description = "",
         Callback = function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/6G9GfqjC'),true))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Build A Boat For Treasure",
-        Content = "Build A Boat For Treasure Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Quartyz Hub",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Zeerox Hub ",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua')()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Batus Hub",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobV2.lua", true))()
         end
     })
 
