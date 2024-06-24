@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Volodym" .. Fluent.Version,
-    SubTitle = "",
+    Title = "Script Hub",
+    SubTitle = "by Volodym5",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -164,6 +164,27 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua", false))()
+        end
+    })
+
+    Tabs.Main:AddParagraph({
+        Title = "Kat",
+        Content = "Kat Scripts"
+    })
+
+    Tabs.Main:AddButton({
+        Title = "LimeX",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/lxnnydev/PublicScripts/main/limexkat.lua'),true))()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Kat Fucker",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/6G9GfqjC'),true))()
         end
     })
 
