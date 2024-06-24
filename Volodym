@@ -173,7 +173,7 @@ do
     })
 
     Tabs.Main:AddButton({
-        Title = "LimeX",
+        Title = "Lime X",
         Description = "",
         Callback = function()
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/lxnnydev/PublicScripts/main/limexkat.lua'),true))()
@@ -185,6 +185,35 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet(('https://pastebin.com/raw/6G9GfqjC'),true))()
+        end
+    })
+
+    Tabs.Main:AddParagraph({
+        Title = "Build A Boat For Treasure",
+        Content = "Build A Boat For Treasure Scripts"
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Quartyz Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Zeerox Hub ",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua')()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Batus Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft"))()
         end
     })
 
