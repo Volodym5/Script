@@ -103,6 +103,14 @@ do
         end
     })
 
+    Tabs.Main:AddButton({
+        Title = "Midnight.cc",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua"))()
+        end
+    })
+
     Tabs.Main:AddParagraph({
         Title = "Bad Business",
         Content = "Bad Business Scripts"
@@ -155,6 +163,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
+        end
+    })
+
+    Tabs.Main:AddButton({
+        Title = "Midnight.cc",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua"))()
         end
     })
 
