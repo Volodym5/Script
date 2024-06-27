@@ -162,7 +162,7 @@ do
         Title = "Solaris Hub",
         Description = "",
         Callback = function()
-        loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua",true))()
         end
     })
 
