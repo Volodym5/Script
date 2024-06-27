@@ -19,6 +19,7 @@ local Tabs = {
     BadBusiness = Window:AddTab({ Title = "Bad Business", Icon = "gamepad-2" }),
     BuildABoatForTreasure = Window:AddTab({ Title = "Build A Boat For Treasure", Icon = "gamepad-2" }),
     CounterBlox = Window:AddTab({ Title = "Counter Blox", Icon = "gamepad-2" }),
+    Evade = Window:AddTab({ Title = "Evade", Icon = "gamepad-2" }),
     Kat = Window:AddTab({ Title = "Kat", Icon = "gamepad-2" }),
     MurderMystery2 = Window:AddTab({ Title = "Murder Mystery 2", Icon = "gamepad-2" }),
     PhantomForces = Window:AddTab({ Title = "Phantom Forces", Icon = "gamepad-2" }),
@@ -163,6 +164,13 @@ do
         Callback = function()
         loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
         end
+    })
+
+    Tabs.Evade:AddButton({
+        Title = "Tbao",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"))()        end
     })
 
     Tabs.Kat:AddButton({
