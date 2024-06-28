@@ -94,6 +94,14 @@ do
         end
     })
 
+    Tabs.Universal:AddButton({
+        Title = "Dark Dex",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet('https://ithinkimandrew.site/scripts/tools/dark-dex.lua'))()
+        end
+    })
+
     Tabs.Arsenal:AddButton({
         Title = "MySploit",
         Description = "",
