@@ -20,6 +20,7 @@ local Tabs = {
     BladeBall = Window:AddTab({ Title = "Blade Ball", Icon = "gamepad-2" }),
     BadBusiness = Window:AddTab({ Title = "Bad Business", Icon = "gamepad-2" }),
     BuildABoatForTreasure = Window:AddTab({ Title = "Build A Boat For Treasure", Icon = "gamepad-2" }),
+    Bedwars = Window:AddTab({ Title = "Bedwars", Icon = "gamepad-2" }),
     CounterBlox = Window:AddTab({ Title = "Counter Blox", Icon = "gamepad-2" }),
     Evade = Window:AddTab({ Title = "Evade", Icon = "gamepad-2" }),
     Kat = Window:AddTab({ Title = "Kat", Icon = "gamepad-2" }),
@@ -189,6 +190,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft"))()
+        end
+    })
+
+    Tabs.Bedwars:AddButton({
+        Title = "Coco Kiwi",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cocotv666/CocoKiwi/main/Cocokiwi"))()
         end
     })
 
