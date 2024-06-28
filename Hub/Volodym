@@ -16,6 +16,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Universal = Window:AddTab({ Title = "Universal", Icon = "focus" }),
     Arsenal = Window:AddTab({ Title = "Arsenal", Icon = "gamepad-2" }),
+    ADustyTrip = Window:AddTab({ Title = "A Dusty Trip", Icon = "gamepad-2" }),
     BladeBall = Window:AddTab({ Title = "Blade Ball", Icon = "gamepad-2" }),
     BadBusiness = Window:AddTab({ Title = "Bad Business", Icon = "gamepad-2" }),
     BuildABoatForTreasure = Window:AddTab({ Title = "Build A Boat For Treasure", Icon = "gamepad-2" }),
@@ -116,6 +117,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua"))()
+        end
+    })
+
+    Tabs.ADustyTrip:AddButton({
+        Title = "Connect Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/Utilities/main/ADustyTrip",true))()
         end
     })
 
