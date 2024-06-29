@@ -19,7 +19,7 @@ local function toggleNoclip()
         Stepped = game:GetService("RunService").Stepped:Connect(function()
             if Clipon then
                 for _, child in pairs(Workspace:GetDescendants()) do
-                    if child:IsA("BasePart") and child.Parent.Name == player.Name then
+                    if child:IsA("BasePart") and child.Parent == player.Character then
                         child.CanCollide = false
                     end
                 end
