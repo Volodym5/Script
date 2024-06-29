@@ -149,7 +149,7 @@ end)
 Toggle:SetValue(false)  -- Set initial toggle state
 
     local Slider = Tabs.Player:AddSlider("Jump", {
-        Title = "Jump Height",
+        Title = "Jump",
         Description = "",
         Default = 50,
         Min = 50,
