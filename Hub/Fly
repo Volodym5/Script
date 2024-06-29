@@ -1,0 +1,78 @@
+-- Services
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+-- Player and Character Variables
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Flying Variables
+local flying = false
+local speed = 50
+local bodyVelocity
+local bodyGyro
+local toggleEnabled = false
+
+-- Functions to Start and Stop Flying
+local function startFlying()
+    if flying then return end
+    flying = true
+
+    bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+    bodyVelocity.MaxForce = Vector3.new(100000, 100000, 100000)
+    bodyVelocity.P = 1250
+    bodyVelocity.Parent = rootPart
+
+    bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.CFrame = rootPart.CFrame
+    bodyGyro.MaxTorque = Vector3.new(100000, 100000, 100000)
+    bodyGyro.P = 3000
+    bodyGyro.Parent = rootPart
+
+    humanoid.PlatformStand = true
+
+    -- Update Flying
+    RunService.RenderStepped:Connect(function()
+        if flying then
+            local camera = workspace.CurrentCamera
+            local moveDirection = (UserInputService:IsKeyDown(Enum.KeyCode.W) and camera.CFrame.LookVector or Vector3.new(0, 0, 0)) +
+                                 (UserInputService:IsKeyDown(Enum.KeyCode.S) and -camera.CFrame.LookVector or Vector3.new(0, 0, 0)) +
+                                 (UserInputService:IsKeyDown(Enum.KeyCode.A) and -camera.CFrame.RightVector or Vector3.new(0, 0, 0)) +
+                                 (UserInputService:IsKeyDown(Enum.KeyCode.D) and camera.CFrame.RightVector or Vector3.new(0, 0, 0))
+
+            bodyVelocity.Velocity = moveDirection * speed
+            bodyGyro.CFrame = camera.CFrame
+        end
+    end)
+end
+
+local function stopFlying()
+    if not flying then return end
+    flying = false
+
+    bodyVelocity:Destroy()
+    bodyGyro:Destroy()
+    humanoid.PlatformStand = false
+end
+
+-- Toggle Flying when 'E' is pressed
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.E and toggleEnabled then
+        if flying then
+            stopFlying()
+        else
+            startFlying()
+        end
+    end
+end)
+
+-- Expose functions to toggle flying
+_G.ToggleFlying = function(state)
+    toggleEnabled = state
+    if not toggleEnabled and flying then
+        stopFlying()
+    end
+end
