@@ -35,7 +35,7 @@ local function startFlying()
     bodyGyro = Instance.new("BodyGyro")
     bodyGyro.CFrame = rootPart.CFrame
     bodyGyro.MaxTorque = Vector3.new(100000, 100000, 100000)
-    bodyGyro.P = 3000
+    bodyGyro.P = 10000
     bodyGyro.Parent = rootPart
 
     humanoid.PlatformStand = true
