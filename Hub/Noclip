@@ -1,11 +1,14 @@
+-- NoclipScript.lua
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+
 local LocalPlayer = Players.LocalPlayer
 local Clipon = false
 local Stepped
 
--- Function to toggle noclip
-local function toggleNoclip(enabled)
+-- Function to toggle noclip externally
+local function setNoclip(enabled)
     Clipon = enabled
     if Clipon then
         -- Disable collisions for all character parts
@@ -29,18 +32,12 @@ local function toggleNoclip(enabled)
     end
 end
 
--- Function to set noclip state externally
-local function setNoclipEnabled(enabled)
-    toggleNoclip(enabled)
-    if enabled then
-        print("Noclip enabled")
-    else
-        print("Noclip disabled")
-    end
+-- Function to return current noclip status
+local function isNoclipEnabled()
+    return Clipon
 end
 
--- Example usage: setting noclip to true externally
-setNoclipEnabled(true)
-
--- Example usage: setting noclip to false externally
--- setNoclipEnabled(false)
+return {
+    setNoclip = setNoclip,
+    isNoclipEnabled = isNoclipEnabled
+}
