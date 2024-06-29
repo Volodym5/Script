@@ -13,13 +13,20 @@ local function toggleNoclip()
         if Stepped then
             Stepped:Disconnect()
         end
+        -- Reset character collision to normal
+        for _, child in pairs(player.Character:GetDescendants()) do
+            if child:IsA("BasePart") then
+                child.CanCollide = true
+            end
+        end
     else
         Clipon = true
         print("Noclip enabled")
         Stepped = game:GetService("RunService").Stepped:Connect(function()
             if Clipon then
-                for _, child in pairs(Workspace:GetDescendants()) do
-                    if child:IsA("BasePart") and child.Parent == player.Character then
+                -- Disable collision for parts of the player's character
+                for _, child in pairs(player.Character:GetDescendants()) do
+                    if child:IsA("BasePart") then
                         child.CanCollide = false
                     end
                 end
