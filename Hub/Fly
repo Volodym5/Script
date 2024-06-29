@@ -11,15 +11,18 @@ local toggleEnabled = false
 local function initializeCharacter()
     local player = game.Players.LocalPlayer
     local character = player.Character
-    local humanoid = character:WaitForChild("Humanoid")
-    local rootPart = character:WaitForChild("HumanoidRootPart")
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
     
     return player, character, humanoid, rootPart
 end
 
 local function startFlying()
     local player, character, humanoid, rootPart = initializeCharacter()
-    if flying or not player or not character or not humanoid or not rootPart then return end
+    if flying or not player or not character or not humanoid or not rootPart then
+        print("Cannot start flying: Character or components not found.")
+        return
+    end
     
     flying = true
 
@@ -103,3 +106,6 @@ _G.ToggleFlying = function(state)
 end
 
 _G.UpdateFlySpeed = updateFlySpeed
+
+-- Initial setup
+initializeCharacter()  -- Attempt to initialize character on script start
