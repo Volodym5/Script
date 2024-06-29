@@ -1,4 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Fly"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Noclip"))()
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -201,6 +202,15 @@ Toggle:SetValue(false)  -- Set initial toggle state
             _G.UpdateFlySpeed(Value)
         end
     })
+
+    local Options = Fluent.Options
+    local Toggle = Tabs.Player:AddToggle("NoclipToggle", {Title = "Noclip", Default = false})
+    
+    Toggle:OnChanged(function()
+        _G.ToggleNoclip(Toggle.Value)
+    end)
+    
+    Options.NoclipToggle:SetValue(false)
 
     Tabs.Arsenal:AddButton({
         Title = "MySploit",
