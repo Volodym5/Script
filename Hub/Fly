@@ -1,12 +1,5 @@
--- Services
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
-
--- Player and Character Variables
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local rootPart = character:WaitForChild("HumanoidRootPart")
 
 -- Flying Variables
 local flying = false
@@ -15,9 +8,19 @@ local bodyVelocity
 local bodyGyro
 local toggleEnabled = false
 
--- Functions to Start and Stop Flying
+local function initializeCharacter()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    local humanoid = character:WaitForChild("Humanoid")
+    local rootPart = character:WaitForChild("HumanoidRootPart")
+    
+    return player, character, humanoid, rootPart
+end
+
 local function startFlying()
-    if flying then return end
+    local player, character, humanoid, rootPart = initializeCharacter()
+    if flying or not player or not character or not humanoid or not rootPart then return end
+    
     flying = true
 
     bodyVelocity = Instance.new("BodyVelocity")
@@ -53,10 +56,24 @@ local function stopFlying()
     if not flying then return end
     flying = false
 
-    bodyVelocity:Destroy()
-    bodyGyro:Destroy()
-    humanoid.PlatformStand = false
+    if bodyVelocity then
+        bodyVelocity:Destroy()
+    end
+    if bodyGyro then
+        bodyGyro:Destroy()
+    end
+    local player, character, humanoid, rootPart = initializeCharacter()
+    if humanoid then
+        humanoid.PlatformStand = false
+    end
 end
+
+-- Listen for Character Added event
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+    if toggleEnabled and flying then
+        stopFlying()
+    end
+end)
 
 -- Toggle Flying when 'E' is pressed
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
@@ -72,7 +89,7 @@ end)
 -- Function to update fly speed based on slider value
 local function updateFlySpeed(value)
     speed = value
-    if flying then
+    if flying and bodyVelocity then
         bodyVelocity.Velocity = bodyVelocity.Velocity.Unit * speed
     end
 end
