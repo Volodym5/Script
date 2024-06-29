@@ -108,17 +108,45 @@ do
         end
     })
 
-    local Slider = Tabs.Player:AddSlider("Speed", {
-        Title = "Walkspeed",
-        Description = "",
-        Default = 16,
-        Min = 16,
-        Max = 500,
-        Rounding = 1,
-        Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-        end
-    })
+local Slider = Tabs.Player:AddSlider("Speed", {
+    Title = "Speed",
+    Description = "",
+    Default = 16,
+    Min = 16,
+    Max = 500,
+    Rounding = 1,
+})
+
+local Toggle = Tabs.Player:AddToggle("SpeedToggle", {
+    Title = "LoopSpeed",
+    Default = false
+})
+
+local function updateWalkSpeed()
+    while Toggle.Value do
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Slider.Value
+        wait(0.1)  -- Adjust timing as needed
+    end
+end
+
+Slider.Callback = function(Value)
+    if not Toggle.Value then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end
+end
+
+Toggle:OnChanged(function()
+    print("Toggle changed:", Toggle.Value)
+    if Toggle.Value then
+        -- Start continuous walkspeed adjustment
+        updateWalkSpeed()
+    else
+        -- Optionally reset walkspeed or handle behavior when toggle is turned off
+    end
+end)
+
+-- Initial setup
+Toggle:SetValue(false)  -- Set initial toggle state
 
     local Slider = Tabs.Player:AddSlider("Jump", {
         Title = "Jump Height",
