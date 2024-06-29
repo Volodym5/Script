@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Fly"))()
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -15,6 +17,7 @@ local Window = Fluent:CreateWindow({
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
     Universal = Window:AddTab({ Title = "Universal", Icon = "focus" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "focus"}),
     Arsenal = Window:AddTab({ Title = "Arsenal", Icon = "gamepad-2" }),
     ADustyTrip = Window:AddTab({ Title = "A Dusty Trip", Icon = "gamepad-2" }),
     BladeBall = Window:AddTab({ Title = "Blade Ball", Icon = "gamepad-2" }),
@@ -102,6 +105,51 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet('https://ithinkimandrew.site/scripts/tools/dark-dex.lua'))()
+        end
+    })
+
+    local Slider = Tabs.Player:AddSlider("Speed", {
+        Title = "Walkspeed",
+        Description = "",
+        Default = 16,
+        Min = 16,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end
+    })
+
+    local Slider = Tabs.Player:AddSlider("Jump", {
+        Title = "Jump Height",
+        Description = "",
+        Default = 50,
+        Min = 50,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+        end
+    })
+
+    local Options = Fluent.Options
+    local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Toggle Fly", Default = false})
+    
+    Toggle:OnChanged(function()
+        _G.ToggleFlying(Options.FlyToggle.Value)
+    end)
+    
+    Options.FlyToggle:SetValue(false)
+
+    local Slider = Tabs.Player:AddSlider("FlySpeed", {
+        Title = "Fly Speed",
+        Description = "",
+        Default = 50,
+        Min = 30,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(Value)
+            _G.UpdateFlySpeed(Value)
         end
     })
 
