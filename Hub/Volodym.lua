@@ -17,7 +17,7 @@ local Window = Fluent:CreateWindow({
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
     Universal = Window:AddTab({ Title = "Universal", Icon = "focus" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "focus"}),
+    Player = Window:AddTab({ Title = "Player", Icon = "scan-face"}),
     Arsenal = Window:AddTab({ Title = "Arsenal", Icon = "gamepad-2" }),
     ADustyTrip = Window:AddTab({ Title = "A Dusty Trip", Icon = "gamepad-2" }),
     BladeBall = Window:AddTab({ Title = "Blade Ball", Icon = "gamepad-2" }),
@@ -159,6 +159,27 @@ Toggle:SetValue(false)  -- Set initial toggle state
             game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
         end
     })
+
+    local InfiniteJumpEnabled = false  -- Start with infinite jump disabled
+
+local Toggle = Tabs.Player:AddToggle("InfiniteJumpToggle", {
+    Title = "Toggle Infinite Jump",
+    Default = false
+})
+
+Toggle:OnChanged(function()
+    print("Infinite Jump Toggle changed:", Toggle.Value)
+    InfiniteJumpEnabled = Toggle.Value
+end)
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+end)
+
+-- Initial setup
+Toggle:SetValue(false)  -- Set initial toggle state
 
     local Options = Fluent.Options
     local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Toggle Fly", Default = false})
