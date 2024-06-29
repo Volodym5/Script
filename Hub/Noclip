@@ -29,7 +29,7 @@ local function toggleNoclip(enabled)
     end
 end
 
--- Example of external toggle usage (can be triggered by any event)
+-- Function to set noclip state externally
 local function setNoclipEnabled(enabled)
     toggleNoclip(enabled)
     if enabled then
