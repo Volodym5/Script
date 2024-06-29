@@ -1,0 +1,46 @@
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Clipon = false
+local Stepped
+
+-- Function to toggle noclip
+local function toggleNoclip(enabled)
+    Clipon = enabled
+    if Clipon then
+        -- Disable collisions for all character parts
+        Stepped = RunService.Stepped:Connect(function()
+            for _, part in pairs(LocalPlayer.Character:GetChildren()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = false
+                end
+            end
+        end)
+    else
+        -- Enable collisions for all character parts
+        if Stepped then
+            Stepped:Disconnect()
+        end
+        for _, part in pairs(LocalPlayer.Character:GetChildren()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = true
+            end
+        end
+    end
+end
+
+-- Example of external toggle usage (can be triggered by any event)
+local function setNoclipEnabled(enabled)
+    toggleNoclip(enabled)
+    if enabled then
+        print("Noclip enabled")
+    else
+        print("Noclip disabled")
+    end
+end
+
+-- Example usage: setting noclip to true externally
+setNoclipEnabled(true)
+
+-- Example usage: setting noclip to false externally
+-- setNoclipEnabled(false)
