@@ -1,49 +1,34 @@
 local Noclip = {}
 
-local NoclipEnabled = false
+local noclipEnabled = false
 
-game:GetService("RunService").Stepped:Connect(function()
-    if NoclipEnabled then
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local rootPart = character:FindFirstChild("HumanoidRootPart")
-            if rootPart then
-                for _, descendant in ipairs(game.Workspace:GetDescendants()) do
-                    if descendant:IsA("BasePart") and descendant ~= rootPart then
-                        descendant.CanCollide = false
-                    end
-                end
-            end
-        end
-    end
-end)
-
-function Noclip.SetEnabled(enabled)
-    NoclipEnabled = enabled
-    if NoclipEnabled then
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if humanoid then
+-- Function to toggle noclip mode
+local function toggleNoclip()
+    noclipEnabled = not noclipEnabled
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            if noclipEnabled then
+                -- Enable noclip: set character's collision mode to be ignored
                 humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-            end
-        end
-    else
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if humanoid then
+            else
+                -- Disable noclip: reset character's collision mode to normal
                 humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
             end
         end
     end
 end
 
+-- Public function to enable or disable noclip mode
+function Noclip.Toggle()
+    toggleNoclip()
+end
+
+-- Function to check if noclip mode is enabled
 function Noclip.IsEnabled()
-    return NoclipEnabled
+    return noclipEnabled
 end
 
 return Noclip
