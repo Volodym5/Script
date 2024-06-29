@@ -118,7 +118,7 @@ local Slider = Tabs.Player:AddSlider("Speed", {
 })
 
 local Toggle = Tabs.Player:AddToggle("SpeedToggle", {
-    Title = "LoopSpeed",
+    Title = "Loop Speed",
     Default = false
 })
 
@@ -163,7 +163,7 @@ Toggle:SetValue(false)  -- Set initial toggle state
     local InfiniteJumpEnabled = false  -- Start with infinite jump disabled
 
 local Toggle = Tabs.Player:AddToggle("InfiniteJumpToggle", {
-    Title = "Toggle Infinite Jump",
+    Title = "Infinite Jump",
     Default = false
 })
 
@@ -182,7 +182,7 @@ end)
 Toggle:SetValue(false)  -- Set initial toggle state
 
     local Options = Fluent.Options
-    local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Toggle Fly", Default = false})
+    local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Fly", Default = false})
     
     Toggle:OnChanged(function()
         _G.ToggleFlying(Options.FlyToggle.Value)
