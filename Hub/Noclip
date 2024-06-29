@@ -1,34 +1,38 @@
-local Noclip = {}
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
 
-local noclipEnabled = false
+local player = Players.LocalPlayer
+local Clipon = false
+local Stepped
 
 -- Function to toggle noclip mode
 local function toggleNoclip()
-    noclipEnabled = not noclipEnabled
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    if character then
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            if noclipEnabled then
-                -- Enable noclip: set character's collision mode to be ignored
-                humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-            else
-                -- Disable noclip: reset character's collision mode to normal
-                humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-            end
+    if Clipon then
+        Clipon = false
+        print("Noclip disabled")
+        if Stepped then
+            Stepped:Disconnect()
         end
+    else
+        Clipon = true
+        print("Noclip enabled")
+        Stepped = game:GetService("RunService").Stepped:Connect(function()
+            if Clipon then
+                for _, child in pairs(Workspace:GetDescendants()) do
+                    if child:IsA("BasePart") and child.Parent.Name == player.Name then
+                        child.CanCollide = false
+                    end
+                end
+            else
+                Stepped:Disconnect()
+            end
+        end)
     end
 end
 
--- Public function to enable or disable noclip mode
-function Noclip.Toggle()
-    toggleNoclip()
-end
-
--- Function to check if noclip mode is enabled
-function Noclip.IsEnabled()
-    return noclipEnabled
-end
-
-return Noclip
+-- Toggle noclip on mouse click
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        toggleNoclip()
+    end
+end)
