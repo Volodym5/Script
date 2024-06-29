@@ -29,7 +29,7 @@ local function startFlying()
     bodyVelocity = Instance.new("BodyVelocity")
     bodyVelocity.Velocity = Vector3.new(0, 0, 0)
     bodyVelocity.MaxForce = Vector3.new(100000, 100000, 100000)
-    bodyVelocity.P = 1250
+    bodyVelocity.P = 10000
     bodyVelocity.Parent = rootPart
 
     bodyGyro = Instance.new("BodyGyro")
