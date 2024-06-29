@@ -10,7 +10,7 @@ local rootPart = character:WaitForChild("HumanoidRootPart")
 
 -- Flying Variables
 local flying = false
-local speed = 50
+local speed = 50  -- Default speed
 local bodyVelocity
 local bodyGyro
 local toggleEnabled = false
@@ -69,10 +69,20 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 end)
 
--- Expose functions to toggle flying
+-- Function to update fly speed based on slider value
+local function updateFlySpeed(value)
+    speed = value
+    if flying then
+        bodyVelocity.Velocity = bodyVelocity.Velocity.Unit * speed
+    end
+end
+
+-- Expose functions to toggle flying and update fly speed
 _G.ToggleFlying = function(state)
     toggleEnabled = state
     if not toggleEnabled and flying then
         stopFlying()
     end
 end
+
+_G.UpdateFlySpeed = updateFlySpeed
