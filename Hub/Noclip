@@ -1,0 +1,43 @@
+local NoclipEnabled = false
+
+game:GetService("RunService").Stepped:Connect(function()
+    if NoclipEnabled then
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local rootPart = character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                for _, descendant in ipairs(game.Workspace:GetDescendants()) do
+                    if descendant:IsA("BasePart") and descendant ~= rootPart then
+                        descendant.CanCollide = false
+                    end
+                end
+            end
+        end
+    end
+end)
+
+local function noclipUpdate()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            if NoclipEnabled then
+                humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+            else
+                humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+            end
+        end
+    end
+end
+
+return {
+    SetEnabled = function(enabled)
+        NoclipEnabled = enabled
+        noclipUpdate()
+    end,
+    IsEnabled = function()
+        return NoclipEnabled
+    end
+}
