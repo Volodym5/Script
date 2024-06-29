@@ -1,14 +1,12 @@
--- Noclip script
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-local UIS = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 local Clipon = false
 local Stepped
 
 -- Function to toggle noclip
-local function toggleNoclip()
-    Clipon = not Clipon
+_G.ToggleNoclip = function(enabled)
+    Clipon = enabled
     if Clipon then
         -- Disable collisions for all character parts
         Stepped = RunService.Stepped:Connect(function()
@@ -30,19 +28,3 @@ local function toggleNoclip()
         end
     end
 end
-
--- Function to set noclip status externally
-local function setNoclip(enabled)
-    if enabled then
-        toggleNoclip()
-    else
-        if Clipon then
-            toggleNoclip()
-        end
-    end
-end
-
-return {
-    toggleNoclip = toggleNoclip,
-    setNoclip = setNoclip
-}
