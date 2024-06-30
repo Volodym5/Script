@@ -127,7 +127,7 @@ do
         end)
         
         Options.NoclipToggle:SetValue(false)
-
+    end
 
 -- Addons:
 -- SaveManager (Allows you to have a configuration system)
