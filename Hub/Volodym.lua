@@ -1,6 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Fly"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Noclip"))()
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -109,108 +106,13 @@ do
         end
     })
 
-local Slider = Tabs.Player:AddSlider("Speed", {
-    Title = "Speed",
-    Description = "",
-    Default = 16,
-    Min = 16,
-    Max = 500,
-    Rounding = 1,
-})
-
-local Toggle = Tabs.Player:AddToggle("SpeedToggle", {
-    Title = "Loop Speed",
-    Default = false
-})
-
-local function updateWalkSpeed()
-    while Toggle.Value do
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Slider.Value
-        wait(0.1)  -- Adjust timing as needed
-    end
-end
-
-Slider.Callback = function(Value)
-    if not Toggle.Value then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-    end
-end
-
-Toggle:OnChanged(function()
-    print("Toggle changed:", Toggle.Value)
-    if Toggle.Value then
-        -- Start continuous walkspeed adjustment
-        updateWalkSpeed()
-    else
-        -- Optionally reset walkspeed or handle behavior when toggle is turned off
-    end
-end)
-
--- Initial setup
-Toggle:SetValue(false)  -- Set initial toggle state
-
-    local Slider = Tabs.Player:AddSlider("Jump", {
-        Title = "Jump",
+    Tabs.Player:AddButton({
+        Title = "Player Menu",
         Description = "",
-        Default = 50,
-        Min = 50,
-        Max = 500,
-        Rounding = 1,
-        Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+        Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Volodym5/Script/main/Hub/Player'))()
         end
     })
-
-    local InfiniteJumpEnabled = false  -- Start with infinite jump disabled
-
-local Toggle = Tabs.Player:AddToggle("InfiniteJumpToggle", {
-    Title = "Infinite Jump",
-    Default = false
-})
-
-Toggle:OnChanged(function()
-    print("Infinite Jump Toggle changed:", Toggle.Value)
-    InfiniteJumpEnabled = Toggle.Value
-end)
-
-game:GetService("UserInputService").JumpRequest:Connect(function()
-    if InfiniteJumpEnabled then
-        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-    end
-end)
-
--- Initial setup
-Toggle:SetValue(false)  -- Set initial toggle state
-
-    local Options = Fluent.Options
-    local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Fly", Default = false})
-    
-    Toggle:OnChanged(function()
-        _G.ToggleFlying(Options.FlyToggle.Value)
-    end)
-    
-    Options.FlyToggle:SetValue(false)
-
-    local Slider = Tabs.Player:AddSlider("FlySpeed", {
-        Title = "Fly Speed",
-        Description = "",
-        Default = 50,
-        Min = 30,
-        Max = 500,
-        Rounding = 1,
-        Callback = function(Value)
-            _G.UpdateFlySpeed(Value)
-        end
-    })
-
-    local Options = Fluent.Options
-    local Toggle = Tabs.Player:AddToggle("NoclipToggle", {Title = "Noclip", Default = false})
-    
-    Toggle:OnChanged(function()
-        _G.ToggleNoclip(Toggle.Value)
-    end)
-    
-    Options.NoclipToggle:SetValue(false)
 
     Tabs.Arsenal:AddButton({
         Title = "MySploit",
