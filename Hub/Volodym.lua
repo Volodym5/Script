@@ -258,7 +258,7 @@ do
     })
 
         Tabs.MurderMystery2:AddButton({
-        Title = "Vynixius",
+        Title = "Nexus",
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
