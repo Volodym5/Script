@@ -305,6 +305,14 @@ do
         end
     })
 
+        Tabs.PhantomForces:AddButton({
+        Title = "Redacted",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdwinS7/RedactedProjectPF/main/src.lua"))()
+        end
+    })
+
 end
 
 
