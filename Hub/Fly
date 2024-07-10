@@ -7,6 +7,7 @@ local speed = 50  -- Default speed
 local bodyVelocity
 local bodyGyro
 local toggleEnabled = false
+local keybind = Enum.KeyCode.E  -- Default keybind
 
 local function initializeCharacter()
     local player = game.Players.LocalPlayer
@@ -78,9 +79,9 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
     end
 end)
 
--- Toggle Flying when 'E' is pressed
+-- Toggle Flying when keybind is pressed
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-    if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.E and toggleEnabled then
+    if not gameProcessedEvent and input.KeyCode == keybind and toggleEnabled then
         if flying then
             stopFlying()
         else
@@ -97,7 +98,7 @@ local function updateFlySpeed(value)
     end
 end
 
--- Expose functions to toggle flying and update fly speed
+-- Expose functions to toggle flying, update fly speed, and change keybind
 _G.ToggleFlying = function(state)
     toggleEnabled = state
     if not toggleEnabled and flying then
@@ -106,6 +107,9 @@ _G.ToggleFlying = function(state)
 end
 
 _G.UpdateFlySpeed = updateFlySpeed
+_G.SetFlyKeybind = function(newKeybind)
+    keybind = newKeybind
+end
 
 -- Initial setup
 initializeCharacter()  -- Attempt to initialize character on script start
