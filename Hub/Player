@@ -99,7 +99,7 @@ do
     Toggle:SetValue(false)  -- Set initial toggle state
     
         local Options = Fluent.Options
-        local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Fly", Default = false})
+        local Toggle = Tabs.Player:AddToggle("FlyToggle", {Title = "Fly (E)", Default = false})
         
         Toggle:OnChanged(function()
             _G.ToggleFlying(Options.FlyToggle.Value)
