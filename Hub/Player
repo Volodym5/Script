@@ -107,9 +107,7 @@ do
         
         Options.FlyToggle:SetValue(false)
     
-        local Slider = Tabs.Player:AddSlider("FlySpeed", {
-            Title = "Fly Speed",
-            Description = "",
+        local Slider = Tabs.Player:AddSlider("FlySpeed", {Title = "Fly Speed", Description = "",
             Default = 50,
             Min = 30,
             Max = 500,
@@ -118,6 +116,46 @@ do
                 _G.UpdateFlySpeed(Value)
             end
         })
+
+-- Assuming Tabs and Fluent are predefined somewhere in your UI setup
+local Keybind = Tabs.Main:AddKeybind("Keybind", {
+    Title = "KeyBind",
+    Mode = "Toggle", -- Always, Toggle, Hold
+    Default = "LeftControl", -- String as the name of the keybind (MB1, MB2 for mouse buttons)
+
+    -- Occurs when the keybind is clicked, Value is `true`/`false`
+    Callback = function(Value)
+        print("Keybind clicked!", Value)
+    end,
+
+    -- Occurs when the keybind itself is changed, `New` is a KeyCode Enum OR a UserInputType Enum
+    ChangedCallback = function(New)
+        _G.SetFlyKeybind(New)
+        print("Keybind changed!", New)
+    end
+})
+
+Keybind:OnClick(function()
+    print("Keybind clicked:", Keybind:GetState())
+end)
+
+Keybind:OnChanged(function()
+    _G.SetFlyKeybind(Keybind.Value)
+    print("Keybind changed:", Keybind.Value)
+end)
+
+task.spawn(function()
+    while true do
+        wait(1)
+        local state = Keybind:GetState()
+        if state then
+            print("Keybind is being held down")
+        end
+        if Fluent.Unloaded then break end
+    end
+end)
+
+Keybind:SetValue("MB2", "Toggle")
     
         local Options = Fluent.Options
         local Toggle = Tabs.Player:AddToggle("NoclipToggle", {Title = "Noclip", Default = false})
