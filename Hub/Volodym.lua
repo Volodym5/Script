@@ -234,6 +234,14 @@ do
         end
     })
 
+        Tabs.CounterBlox:AddButton({
+        Title = "Solaris Beta",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Solaris/Solaris.lua",true))()
+        end
+    })
+
     Tabs.Evade:AddButton({
         Title = "Tbao",
         Description = "",
