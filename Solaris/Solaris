@@ -4,7 +4,7 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/
 
 if game.PlaceId == 286090429 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Solaris/Arsenal.lua",true))()
-if game.PlaceId == 301549746 then
+elseif game.PlaceId == 301549746 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Solaris/CounterBlox.lua",true))()
 elseif game.PlaceId == 1480424328 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Solaris/CounterBlox.lua",true))()
