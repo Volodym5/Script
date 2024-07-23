@@ -98,6 +98,14 @@ do
         end
     })
 
+        Tabs.Universal:AddButton({
+        Title = "Sirius",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet('https://sirius.menu/script'))()
+        end
+    })
+
     Tabs.Universal:AddButton({
         Title = "Dark Dex",
         Description = "",
@@ -247,6 +255,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/uedan228/FREE-Counter-Blox-script/main/V1.1"))()
+        end
+    })
+
+        Tabs.CounterBlox:AddButton({
+        Title = "Skid.lol",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/V3xOwnYou/Skid.LoL/main/Loader.lua"))()
         end
     })
 
