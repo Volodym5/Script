@@ -7,12 +7,11 @@ local Window = Fluent:CreateWindow({
     SubTitle = "by Volodym5",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
-    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Acrylic = true,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 
---Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
     Main = Window:AddTab({ Title = "Games", Icon = "gamepad-2" }),
     Hub = Window:AddTab({ Title = "Hubs", Icon = "calendar" }),
@@ -23,8 +22,6 @@ local Tabs = {
 }
 
 local Options = Fluent.Options
-
-do
 
     Tabs.Hub:AddButton({
         Title = "Omen Hub",
@@ -90,208 +87,132 @@ do
         end
     })
 
-    Tabs.Main:AddParagraph({
-        Title = "Arsenal",
-        Content = "Arsenal Scripts"
-    })
+-- Script data mapping games to their scripts
+local ScriptData = {
+    Arsenal = {
+        { Title = "MySploit", URL = "https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua" },
+        { Title = "Midnight.cc", URL = "https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua" },
+    },
+    ["Bad Business"] = {
+        { Title = "Homohack", URL = "https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua" },
+    },
+    ["Build A Boat For Treasure"] = {
+        { Title = "Quartyz Hub", URL = "https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader" },
+        { Title = "Zeerox Hub", URL = "https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua" },
+        { Title = "Batus Hub", URL = "https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft" },
+    },
+    ["Counter Blox"] = {
+        { Title = "Galaxy Skid", URL = "https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt" },
+        { Title = "Midnight.cc", URL = "https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua" },
+        { Title = "Solaris Hub", URL = "https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt" },
+    },
+    ["Kat"] = {
+        { Title = "Lime X", URL = "https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua" },
+        { Title = "Kat Fucker", URL = "https://pastebin.com/raw/6G9GfqjC" },
+    },
+    ["Murder Mystery 2"] = {
+        { Title = "Ski", URL = "https://pastebin.com/raw/mT10xnt7" },
+        { Title = "Yahrm", URL = "https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua" },
+    },
+    ["Phantom Forces"] = {
+        { Title = "Homohack", URL = "https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua" },
+        { Title = "DeleteMob", URL = "https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobV2.lua" },
+    },
+    ["Rivals"] = {
+        { Title = "Rivals Roblox Gui", URL = "https://raw.githubusercontent.com/Sheeshablee73/Scriptss/main/RivalsUPD2.lua" },
+        { Title = "Rybowe Hub", URL = "https://you.whimper.xyz/rybowe" },
+    },
+    ["Fisch"] = {
+        { Title = "Project Spectrum", URL = "https://you.whimper.xyz/spectrum" },
+        { Title = "Speed Hub X", URL = "https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua" },
+        { Title = "Hidden - Fisch", URL = "https://you.whimper.xyz/hiddenFisch" },
+        { Title = "Cup pink", URL = "https://you.whimper.xyz/sources/CupPink/fisch.lua" },
+        { Title = "Reaper Hub", URL = "https://you.whimper.xyz/reaperhub" },
+    },
+    -- Add other games and their scripts as needed
+}
 
-    Tabs.Main:AddButton({
-        Title = "MySploit",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet(("https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua"), true))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Midnight.cc",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua"))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Bad Business",
-        Content = "Bad Business Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Homohack",
-        Description = "",
-        Callback = function()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Build A Boat For Treasure",
-        Content = "Build A Boat For Treasure Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Quartyz Hub",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Zeerox Hub ",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua')()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Batus Hub",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/juywvm/-Roblox-Projects-/main/babft"))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Counter Blox",
-        Content = "Counter Blox Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Galaxy Skid",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Midnight.cc",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/laeraz/midnightcc/main/public.lua"))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Solaris Hub",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://gist.githubusercontent.com/Volodym5/1db7c6fb157db457b3444f605368b8d8/raw/95c3e706f6609a036b41bd80db07d460e1ef195e/CounterBloxScript.txt"))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Kat",
-        Content = "Kat Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Lime X",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua",true))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Kat Fucker",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/6G9GfqjC'),true))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Murder Mystery 2",
-        Content = "Murder Mystery 2 Scripts"
-    })
-
-
-    Tabs.Main:AddButton({
-        Title = "Vynixius",
-        Description = "",
-        Callback = function()
-        loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Ski",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet(("https://pastebin.com/raw/mT10xnt7"), true))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "YARHM",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua", false))()
-        end
-    })
-
-    Tabs.Main:AddParagraph({
-        Title = "Phantom Forces",
-        Content = "Phantom Forces Scripts"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Homohack",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "DeleteMob",
-        Description = "",
-        Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobV2.lua", true))()
-        end
-    })
-
+-- Function to sort table keys alphabetically
+local function getSortedKeys(t)
+    local keys = {}
+    for key in pairs(t) do
+        table.insert(keys, key)
+    end
+    table.sort(keys, function(a, b) return a:lower() < b:lower() end)
+    return keys
 end
 
+-- Function to create a dropdown and button for each game
+local function addGameSection(gameName, scripts)
+    local selectedScript = nil -- Variable to store the selected script
 
+    local scriptTitles = {}
+    for _, script in ipairs(scripts) do
+        table.insert(scriptTitles, script.Title)
+    end
 
+    local GameDropdown = Tabs.Main:AddDropdown(gameName .. " Selector", {
+        Title = gameName, -- Use the game name as the dropdown title
+        Values = scriptTitles,
+        Multi = false,
+        Default = 1, -- Set a default selection if required
+    })
 
--- Addons:
--- SaveManager (Allows you to have a configuration system)
--- InterfaceManager (Allows you to have a interface managment system)
+    -- Listen for changes in dropdown selection
+    GameDropdown:OnChanged(function(value)
+        selectedScript = value
+    end)
 
--- Hand the library over to our managers
-SaveManager:SetLibrary(Fluent)
-InterfaceManager:SetLibrary(Fluent)
+    Tabs.Main:AddButton({
+        Title = "Execute Script",
+        Description = "",
+        Callback = function()
+            if not selectedScript then
+                Fluent:Notify({
+                    Title = "Error",
+                    Content = "Please select a script before executing!",
+                    Duration = 3,
+                })
+                return
+            end
 
--- Ignore keys that are used by ThemeManager.
--- (we dont want configs to save themes, do we?)
-SaveManager:IgnoreThemeSettings()
+            for _, script in ipairs(scripts) do
+                if script.Title == selectedScript then
+                    loadstring(game:HttpGet(script.URL))()
+                    return
+                end
+            end
 
--- You can add indexes of elements the save manager should ignore
-SaveManager:SetIgnoreIndexes({})
+            Fluent:Notify({
+                Title = "Error",
+                Content = "No matching script found!",
+                Duration = 3,
+            })
+        end,
+    })
+end
 
--- use case for doing it this way:
--- a script hub could have themes in a global folder
--- and game configs in a separate folder per game
-InterfaceManager:SetFolder("FluentScriptHub")
-SaveManager:SetFolder("FluentScriptHub/specific-game")
+-- Add all games and their scripts in alphabetical order
+local sortedGameNames = getSortedKeys(ScriptData)
+for _, gameName in ipairs(sortedGameNames) do
+    local scripts = ScriptData[gameName]
+    addGameSection(gameName, scripts)
+end
 
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
-
-
-Window:SelectTab(1)
-
+-- Notify when the script hub is loaded
 Fluent:Notify({
     Title = "Fluent",
     Content = "The script has been loaded.",
-    Duration = 3
+    Duration = 3,
 })
 
--- You can use the SaveManager:LoadAutoloadConfig() to load a config
--- which has been marked to be one that auto loads!
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes({})
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+Window:SelectTab(1)
 SaveManager:LoadAutoloadConfig()
