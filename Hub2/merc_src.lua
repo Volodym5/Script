@@ -16,13 +16,13 @@ local Library = {
 			StrongText = Color3.fromHSV(0, 0, 1),		
 			WeakText = Color3.fromHSV(0, 0, 172/255)
 		},
-		Serika = {
-			Main = Color3.fromRGB(50, 52, 55),
-			Secondary = Color3.fromRGB(80, 82, 85),
-			Tertiary = Color3.fromRGB(226, 183, 20),
+		Darker = {
+			Main = Color3.fromRGB(15, 15, 20),
+			Secondary = Color3.fromRGB(30, 30, 35), --
+			Tertiary = Color3.fromRGB(40, 80, 110),
 
-			StrongText = Color3.fromHSV(0, 0, 1),		
-			WeakText = Color3.fromHSV(0, 0, 172/255)
+			StrongText = Color3.fromHSV(0, 0, 0.85),
+			WeakText = Color3.fromHSV(0, 0, 0.5)
 		},
 		Dark = {
 			Main = Color3.fromRGB(30, 30, 35),
@@ -47,15 +47,6 @@ local Library = {
 
 			StrongText = Color3.fromHSV(0, 0, 1),        
 			WeakText = Color3.fromHSV(0, 0, 172/255)
-		},
-		Darker = {
-			Main = Color3.fromRGB(15, 15, 20),
-			Secondary = Color3.fromRGB(30, 30, 35), --
-			Tertiary = Color3.fromRGB(40, 80, 110),
-
-			StrongText = Color3.fromHSV(0, 0, 0.85),
-			WeakText = Color3.fromHSV(0, 0, 0.5)
-
 		},
 		Vaporwave = {},
 		OperaGX = {},
