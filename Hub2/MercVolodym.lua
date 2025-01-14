@@ -200,3 +200,31 @@ local FischDropdown = Games:Dropdown{
 		end
 	end
 }
+
+local RivalsDropdown = Games:Dropdown{
+	Name = "Rivals",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Rybowe Hub", "Rivals Roblox Gui"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Rybowe Hub" then
+		    loadstring(game:HttpGet("https://you.whimper.xyz/rybowe"))()
+        elseif item == "Rivals Roblox Gui" then
+            local scriptURL = 'https://raw.githubusercontent.com/Sheeshablee73/Scriptss/main/RivalsUPD2.lua' local response = game:HttpGet(scriptURL) local executeScript = loadstring(response) executeScript()
+		end
+	end
+}
+
+local WordBombDropdown = Games:Dropdown{
+	Name = "Word Bomb",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Script"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Script" then
+		    loadstring(game:HttpGet("https://gist.githubusercontent.com/DeveloperMikey/e38e678bc4c1a1ee92ff27db7cdd4c3f/raw/wordbomb.lua", true))()
+		end
+	end
+}
