@@ -116,3 +116,15 @@ local CounterBloxDropdown = Games:Dropdown{
 	end
 }
 
+local EvadeDropdown = Games:Dropdown{
+	Name = "Evade",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Tbao Hub"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Tbao Hub" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"))()
+		end
+	end
+}
