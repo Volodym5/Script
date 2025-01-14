@@ -83,3 +83,36 @@ local BuildABoatDropdown = Games:Dropdown{
 		end
 	end
 }
+
+local BloxFruitsDropdown = Games:Dropdown{
+	Name = "Blox fruits",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Speed Hub X", "Blue X"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Speed Hub X" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+        elseif item == "Blue X" then
+        	loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/EN.lua"))()
+		end
+	end
+}
+
+local CounterBloxDropdown = Games:Dropdown{
+	Name = "Counter blox",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Solaris Hub", "Solaris Hub Beta", "Happy Hub"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Solaris Hub" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua",true))()
+        elseif item == "Solaris Hub Beta" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/main/Solaris/Solaris.lua",true))()
+        elseif item == "Happy Hub" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/uedan228/FREE-Counter-Blox-script/main/V1.1"))()
+		end
+	end
+}
+
