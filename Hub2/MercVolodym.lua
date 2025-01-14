@@ -175,3 +175,28 @@ local PhantomForcesDropdown = Games:Dropdown{
 		end
 	end
 }
+
+local FischDropdown = Games:Dropdown{
+	Name = "Fisch",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Project Spectrum", "Speed Hub X", "Hidden", "Cup pink", "Reaper Hub", "Pulse", "Dexzy Hub"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Project Spectrum" then
+		    loadstring(game:HttpGet("https://you.whimper.xyz/spectrum"))()
+        elseif item == "Speed Hub X" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+	elseif item == "Hidden" then
+            loadstring(game:HttpGet("https://you.whimper.xyz/hiddenFisch"))()
+	elseif item == "Cup pink" then
+            loadstring(game:HttpGet("https://you.whimper.xyz/sources/CupPink/fisch.lua"))()
+	elseif item == "Reaper Hub" then
+            loadstring(game:HttpGet("https://you.whimper.xyz/reaperhub"))()
+	elseif item == "Pulse" then
+            loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Pulse/loader.lua", true))()
+	elseif item == "Dexzy Hub" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Simple-xa/Fisch/main/Dexzybit.lua"))()
+		end
+	end
+}
