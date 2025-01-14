@@ -141,3 +141,22 @@ local KATDropdown = Games:Dropdown{
 		end
 	end
 }
+
+local MM2Dropdown = Games:Dropdown{
+	Name = "Murder mystery 2",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Nexus", "Vynixius", "Ski", "YARHM"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Nexus" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+        elseif item == "Vynixius" then
+            loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+	elseif item == "Ski" then
+            loadstring(game:HttpGet(("https://pastebin.com/raw/mT10xnt7"), true))()
+	elseif item == "YARHM" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua", false))()
+		end
+	end
+}
