@@ -128,3 +128,16 @@ local EvadeDropdown = Games:Dropdown{
 		end
 	end
 }
+
+local KATDropdown = Games:Dropdown{
+	Name = "KAT",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"King's Hub"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "King's Hub" then
+		    loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/Knife-Ability-Test/main/Gui'))()
+		end
+	end
+}
