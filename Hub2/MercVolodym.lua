@@ -17,11 +17,24 @@ local ArsenalDropdown = Games:Dropdown{
 	Description = nil,
 	Items = {"Vapa V2", "Tekkit Hub"},
 	Callback = function(item)
-		print("Phantom Forces selected item:", item)
+		print("Arsenal selected script:", item)
 		if item == "Vapa V2" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa-v2/refs/heads/main/Vapav2-Arsenal.lua", true))()
 		elseif item == "Tekkit Hub" then
        		loadstring(game:HttpGet("https://raw.githubusercontent.com/zerunquist/TekkitAotr/refs/heads/main/main"))()
+		end
+	end
+}
+
+local ADustyTripDropdown = Games:Dropdown{
+	Name = "A dusty trip",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Connect Hub"},
+	Callback = function(item)
+		print("A dusty trip selected script:", item)
+		if item == "Connect Hub" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/Utilities/main/ADustyTrip",true))()
 		end
 	end
 }
