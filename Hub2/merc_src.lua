@@ -19,7 +19,7 @@ local Library = {
 		Darker = {
 			Main = Color3.fromRGB(15, 15, 20),
 			Secondary = Color3.fromRGB(30, 30, 35),
-			Tertiary = Color3.fromRGB(0, 200, 255),
+			Tertiary = Color3.fromRGB(80, 140, 190),
 
 			StrongText = Color3.fromHSV(0, 0, 1),		
 			WeakText = Color3.fromHSV(0, 0, 172/255)
