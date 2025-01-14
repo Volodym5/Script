@@ -160,3 +160,18 @@ local MM2Dropdown = Games:Dropdown{
 		end
 	end
 }
+
+local PhantomForcesDropdown = Games:Dropdown{
+	Name = "Phantom forces",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Homohack", "Wapus"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Homohack" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
+        elseif item == "Wapus" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/iRay888/wapus/refs/heads/main/source.lua"))()
+		end
+	end
+}
