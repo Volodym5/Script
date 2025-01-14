@@ -12,18 +12,16 @@ local Games = GUI:Tab{
 	Icon = "rbxassetid://10723395215"
 }
 local ArsenalDropdown = Games:Dropdown{
-	Name = "Phantom Forces",
+	Name = "Arsenal",
 	StartingText = "Select...",
 	Description = nil,
-	Items = {"Option A", "Option B", "Option C"},
+	Items = {"Vapa V2", "Tekkit Hub"},
 	Callback = function(item)
 		print("Phantom Forces selected item:", item)
-		if item == "Option A" then
-			print("Phantom Forces Option A selected")
-			-- Add script or functionality here for Option A
-		elseif item == "Option B" then
-			print("Phantom Forces Option B selected")
-			-- Add script or functionality here for Option B
+		if item == "Vapa V2" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa-v2/refs/heads/main/Vapav2-Arsenal.lua", true))()
+		elseif item == "Tekkit Hub" then
+       		loadstring(game:HttpGet("https://raw.githubusercontent.com/zerunquist/TekkitAotr/refs/heads/main/main"))()
 		end
 	end
 }
