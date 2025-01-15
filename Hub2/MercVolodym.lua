@@ -11,6 +11,17 @@ local Games = GUI:Tab{
 	Name = "Games",
 	Icon = "rbxassetid://10723395215"
 }
+
+local Universal = GUI:Tab{
+	Name = "Universal",
+	Icon = "rbxassetid://10723377537"
+}
+
+local Player = GUI:Tab{
+	Name = "Player",
+	Icon = "rbxassetid://10747373426"
+}
+
 local ArsenalDropdown = Games:Dropdown{
 	Name = "Arsenal",
 	StartingText = "Select...",
@@ -227,4 +238,168 @@ local WordBombDropdown = Games:Dropdown{
 		    loadstring(game:HttpGet("https://gist.githubusercontent.com/DeveloperMikey/e38e678bc4c1a1ee92ff27db7cdd4c3f/raw/wordbomb.lua", true))()
 		end
 	end
+}
+
+local speedValue = 16 -- Default speed
+local speedToggle = false
+local infiniteJump = false
+local flySpeed = 50
+local flying = false
+local noclip = false
+local flyDirection = Vector3.zero
+local userInputService = game:GetService("UserInputService")
+
+-- Speed Slider and Toggle
+Player:Slider{
+    Name = "Speed",
+    Default = 16,
+    Min = 16,
+    Max = 500,
+    Callback = function(value)
+        speedValue = value
+        if not speedToggle then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+        end
+    end
+}
+
+Player:Toggle{
+    Name = "Loop Speed",
+    Default = false,
+    Callback = function(state)
+        speedToggle = state
+        if state then
+            spawn(function()
+                while speedToggle do
+                    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speedValue
+                    wait(0.1)
+                end
+            end)
+        end
+    end
+}
+
+-- Jump Power Slider and Infinite Jump Toggle
+Player:Slider{
+    Name = "Jump",
+    Default = 50,
+    Min = 50,
+    Max = 500,
+    Callback = function(value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+    end
+}
+
+Player:Toggle{
+    Name = "Infinite Jump",
+    Default = false,
+    Callback = function(state)
+        infiniteJump = state
+    end
+}
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if infiniteJump then
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:ChangeState("Jumping")
+        end
+    end
+end)
+
+-- Fly Toggle and Fly Speed Slider
+local function fly()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+    local bodyVelocity = Instance.new("BodyVelocity", humanoidRootPart)
+    bodyVelocity.MaxForce = Vector3.new(1e5, 1e5, 1e5)
+    bodyVelocity.Velocity = Vector3.zero
+
+    local bodyGyro = Instance.new("BodyGyro", humanoidRootPart)
+    bodyGyro.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
+    bodyGyro.CFrame = humanoidRootPart.CFrame
+
+    local function updateFlyDirection()
+        local moveDirection = Vector3.zero
+        if userInputService:IsKeyDown(Enum.KeyCode.W) then
+            moveDirection = moveDirection + workspace.CurrentCamera.CFrame.LookVector
+        end
+        if userInputService:IsKeyDown(Enum.KeyCode.S) then
+            moveDirection = moveDirection - workspace.CurrentCamera.CFrame.LookVector
+        end
+        if userInputService:IsKeyDown(Enum.KeyCode.A) then
+            moveDirection = moveDirection - workspace.CurrentCamera.CFrame.RightVector
+        end
+        if userInputService:IsKeyDown(Enum.KeyCode.D) then
+            moveDirection = moveDirection + workspace.CurrentCamera.CFrame.RightVector
+        end
+
+        if moveDirection.Magnitude > 0 then
+            flyDirection = moveDirection.Unit * flySpeed
+        else
+            flyDirection = Vector3.zero
+        end
+    end
+
+    flying = true
+    spawn(function()
+        while flying do
+            updateFlyDirection()
+            bodyVelocity.Velocity = flyDirection
+            bodyGyro.CFrame = workspace.CurrentCamera.CFrame
+            wait()
+        end
+        bodyVelocity:Destroy()
+        bodyGyro:Destroy()
+    end)
+end
+
+Player:Toggle{
+    Name = "Fly",
+    Default = false,
+    Callback = function(state)
+        flying = state
+        if state then
+            fly()
+        end
+    end
+}
+
+Player:Slider{
+    Name = "Fly Speed",
+    Default = 50,
+    Min = 30,
+    Max = 500,
+    Callback = function(value)
+        flySpeed = value
+    end
+}
+
+-- Noclip Toggle
+Player:Toggle{
+    Name = "Noclip",
+    Default = false,
+    Callback = function(state)
+        noclip = state
+        if state then
+            spawn(function()
+                while noclip do
+                    for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                        if part:IsA("BasePart") and part.CanCollide then
+                            part.CanCollide = false
+                        end
+                    end
+                    wait()
+                end
+            end)
+        else
+            for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = true
+                end
+            end
+        end
+    end
 }
