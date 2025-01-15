@@ -241,10 +241,88 @@ local WordBombDropdown = Games:Dropdown{
 }
 
 Universal:Button{
-	Name = "Button",
+    Name = "Hive Hub",
+    Description = "automaticly copies the key",
+    Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/iamnotadingus/Hive-Hub/refs/heads/main/RELEASED", true))()
+        end)
+
+        wait(1)
+        setclipboard("HH_EKSPCHWALKT")
+    end
+}
+
+Universal:Button{
+	Name = "Air Hub",
+	Description = "aimbot",
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
+    end
+}
+
+Universal:Button{
+	Name = "Aimbot",
 	Description = nil,
-	Callback = function() end
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/mezzopera/Omen-Hub/main/omen_hub.lua"))()
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
+    end
+}
+
+Universal:Button{
+	Name = "Homohack",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
+    end
+}
+
+Universal:Button{
+	Name = "Infinite Yield",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+}
+
+Universal:Button{
+	Name = "Nameless Admin",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+    end
+}
+
+Universal:Button{
+	Name = "Orca",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+    end
+}
+
+Universal:Button{
+	Name = "DomainX",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source",true))()
+    end
+}
+
+Universal:Button{
+	Name = "Sirius",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet('https://sirius.menu/script'))()
+    end
+}
+
+Universal:Button{
+	Name = "Dark Dex",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet('https://ithinkimandrew.site/scripts/tools/dark-dex.lua'))()
+    end
 }
 
 local speedValue = 16 -- Default speed
