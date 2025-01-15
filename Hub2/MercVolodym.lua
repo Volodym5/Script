@@ -240,6 +240,14 @@ local WordBombDropdown = Games:Dropdown{
 	end
 }
 
+Universal:Button{
+	Name = "Button",
+	Description = nil,
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/mezzopera/Omen-Hub/main/omen_hub.lua"))()
+	end
+}
+
 local speedValue = 16 -- Default speed
 local speedToggle = false
 local infiniteJump = false
