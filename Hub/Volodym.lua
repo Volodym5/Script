@@ -343,6 +343,22 @@ do
         end
     })
 
+        Tabs.NinjaLegends:AddButton({
+        Title = "Strike Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/StormSKz12/StirkeHub1/main/Gameincluded"))()
+        end
+    })
+
+        Tabs.NinjaLegends:AddButton({
+        Title = "Script",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Zepsyy2/asd/main/Ninja%20Legends.lua"))()
+        end
+    })
+
         Tabs.PhantomForces:AddButton({
         Title = "Homohack",
         Description = "",
