@@ -1,4 +1,3 @@
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -29,6 +28,7 @@ local Tabs = {
     Fisch = Window:AddTab({ Title = "Fisch", Icon = "gamepad-2" }),
     Kat = Window:AddTab({ Title = "Kat", Icon = "gamepad-2" }),
     MurderMystery2 = Window:AddTab({ Title = "Murder Mystery 2", Icon = "gamepad-2" }),
+    NinjaLegends = Window:AddTab({ Title = "Ninja Legends", Icon = "gamepad-2" }),
     PhantomForces = Window:AddTab({ Title = "Phantom Forces", Icon = "gamepad-2" }),
     Rivals = Window:AddTab({ Title = "Rivals", Icon = "gamepad-2" }),
     WordBomb = Window:AddTab({ Title = "Word Bomb", Icon = "gamepad-2" }),
