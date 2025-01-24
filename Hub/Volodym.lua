@@ -29,6 +29,7 @@ local Tabs = {
     Kat = Window:AddTab({ Title = "Kat", Icon = "gamepad-2" }),
     MurderMystery2 = Window:AddTab({ Title = "Murder Mystery 2", Icon = "gamepad-2" }),
     NinjaLegends = Window:AddTab({ Title = "Ninja Legends", Icon = "gamepad-2" }),
+    NinjaLegends2 = Window:AddTab({ Title = "Ninja Legends 2", Icon = "gamepad-2" }),
     PhantomForces = Window:AddTab({ Title = "Phantom Forces", Icon = "gamepad-2" }),
     Rivals = Window:AddTab({ Title = "Rivals", Icon = "gamepad-2" }),
     WordBomb = Window:AddTab({ Title = "Word Bomb", Icon = "gamepad-2" }),
@@ -348,6 +349,22 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/StormSKz12/StirkeHub1/main/Gameincluded"))()
+        end
+    })
+
+        Tabs.NinjaLegends:AddButton({
+        Title = "Script",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Zepsyy2/asd/main/Ninja%20Legends.lua"))()
+        end
+    })
+
+        Tabs.NinjaLegends2:AddButton({
+        Title = "Script",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet"https://pastebin.com/raw/FCa86zXe")()
         end
     })
 
