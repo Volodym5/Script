@@ -212,6 +212,18 @@ local NinjaLegendsDropdown = Games:Dropdown{
 	end
 }
 
+local NinjaLegends2Dropdown = Games:Dropdown{
+	Name = "Ninja Legends 2",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Script"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Script" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/StormSKz12/StirkeHub1/main/Gameincluded"))()
+	end
+}
+
 local PhantomForcesDropdown = Games:Dropdown{
 	Name = "Phantom forces",
 	StartingText = "Select...",
