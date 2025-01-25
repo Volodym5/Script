@@ -276,7 +276,7 @@ Universal:Button{
         end)
 
         wait(1)
-        setclipboard("HH_HCAKLPSWETR")
+        setclipboard("HH_SPWLKECHAKT")
     end
 }
 
