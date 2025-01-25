@@ -68,7 +68,7 @@ do
         Title = "Hive Hub Key",
         Description = "Click to copy!",
         Callback = function()
-        setclipboard("HH_HCAKLPSWETR")
+        setclipboard("HH_SPWLKECHAKT")
         end
     })
 
