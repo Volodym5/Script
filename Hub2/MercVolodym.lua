@@ -165,6 +165,19 @@ local FischDropdown = Games:Dropdown{
 	end
 }
 
+local JujutsuInfiniteDropdown = Games:Dropdown{
+	Name = "Jujutsu Infinite",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Speed Hub X"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Speed Hub X" then
+		    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Jujutsu%20Infinite.lua"))()
+		end
+	end
+}
+
 local KATDropdown = Games:Dropdown{
 	Name = "KAT",
 	StartingText = "Select...",
