@@ -26,6 +26,7 @@ local Tabs = {
     CounterBlox = Window:AddTab({ Title = "Counter Blox", Icon = "gamepad-2" }),
     Evade = Window:AddTab({ Title = "Evade", Icon = "gamepad-2" }),
     Fisch = Window:AddTab({ Title = "Fisch", Icon = "gamepad-2" }),
+    JujutsuInfinite = Window:AddTab({ Title = "Jujutsu Infinite", Icon = "gamepad-2" }),
     Kat = Window:AddTab({ Title = "Kat", Icon = "gamepad-2" }),
     MurderMystery2 = Window:AddTab({ Title = "Murder Mystery 2", Icon = "gamepad-2" }),
     NinjaLegends = Window:AddTab({ Title = "Ninja Legends", Icon = "gamepad-2" }),
@@ -301,6 +302,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"))()
+        end
+    })
+
+        Tabs.JujutsuInfinite:AddButton({
+        Title = "Speed Hub X",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Jujutsu%20Infinite.lua"))()
         end
     })
 
