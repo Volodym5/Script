@@ -466,8 +466,8 @@ do
     })
 
         Tabs.Fisch:AddButton({
-        Title = "Native (Click login on first key system)",
-        Description = "The best!!!",
+        Title = "Native",
+        Description = "Dev only!!!",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/refs/heads/main/Hub/NativeFisch"))()
         end
