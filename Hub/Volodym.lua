@@ -58,6 +58,14 @@ do
     })
 
         Tabs.Universal:AddButton({
+        Title = "Saturn Bypasser",
+        Description = "This chat bypasser needs good executor",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Qrto1/working/main/pc"))()
+        end
+    })
+
+        Tabs.Universal:AddButton({
         Title = "Hive Hub",
         Description = "",
         Callback = function()
