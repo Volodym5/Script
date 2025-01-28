@@ -24,6 +24,7 @@ local Tabs = {
     Bedwars = Window:AddTab({ Title = "Bedwars", Icon = "gamepad-2" }),
     BloxFruits = Window:AddTab({ Title = "Blox fruits", Icon = "gamepad-2" }),
     CounterBlox = Window:AddTab({ Title = "Counter Blox", Icon = "gamepad-2" }),
+    DrivingEmpire = Window:AddTab({ Title = "Driving Empire", Icon = "gamepad-2" }),
     Evade = Window:AddTab({ Title = "Evade", Icon = "gamepad-2" }),
     Fisch = Window:AddTab({ Title = "Fisch", Icon = "gamepad-2" }),
     JujutsuInfinite = Window:AddTab({ Title = "Jujutsu Infinite", Icon = "gamepad-2" }),
@@ -302,6 +303,14 @@ do
         Description = "",
         Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/V3xOwnYou/Skid.LoL/main/Loader.lua"))()
+        end
+    })
+
+        Tabs.DrivingEmpire:AddButton({
+        Title = "Kitty Hub",
+        Description = "",
+        Callback = function()
+        loadstring(game:HttpGet("https://whimper.xyz/kitty"))()
         end
     })
 
