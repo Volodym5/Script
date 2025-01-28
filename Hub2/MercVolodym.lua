@@ -144,7 +144,7 @@ local FischDropdown = Games:Dropdown{
 	Name = "Fisch",
 	StartingText = "Select...",
 	Description = nil,
-	Items = {"Project Spectrum", "Speed Hub X", "Hidden", "Cup pink", "Reaper Hub", "Pulse", "Dexzy Hub"},
+	Items = {"Project Spectrum", "Speed Hub X", "Hidden", "Cup pink", "Reaper Hub", "Pulse", "Dexzy Hub", "Native"},
 	Callback = function(item)
 		print("Selected script:", item)
 		if item == "Project Spectrum" then
@@ -161,6 +161,8 @@ local FischDropdown = Games:Dropdown{
             loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Pulse/loader.lua", true))()
 	elseif item == "Dexzy Hub" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Simple-xa/Fisch/main/Dexzybit.lua"))()
+	elseif item == "Native" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/refs/heads/main/Hub/NativeFisch"))()
 		end
 	end
 }
@@ -290,6 +292,14 @@ Universal:Button{
 
         wait(1)
         setclipboard("HH_SPWLKECHAKT")
+    end
+}
+
+Universal:Button{
+	Name = "Saturn Bypasser",
+	Description = "This chat bypasser needs good executor!",
+	Callback = function()
+    loadstring(game:HttpGet("https://you.whimper.xyz/saturnbyp.lua"))()
     end
 }
 
