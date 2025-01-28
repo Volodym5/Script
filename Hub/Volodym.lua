@@ -321,6 +321,14 @@ do
         end
     })
 
+        Tabs.JujutsuInfinite:AddButton({
+        Title = "Native",
+        Description = "Dev only!!!",
+        Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/refs/heads/main/Hub/NativeFisch"))()
+        end
+    })
+
         Tabs.Kat:AddButton({
         Title = "King's Hub",
         Description = "",
