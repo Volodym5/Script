@@ -171,7 +171,7 @@ local JujutsuInfiniteDropdown = Games:Dropdown{
 	Name = "Jujutsu Infinite",
 	StartingText = "Select...",
 	Description = nil,
-	Items = {"Speed Hub X", "Netive"},
+	Items = {"Speed Hub X", "Native"},
 	Callback = function(item)
 		print("Selected script:", item)
 		if item == "Speed Hub X" then
