@@ -127,6 +127,19 @@ local CounterBloxDropdown = Games:Dropdown{
 	end
 }
 
+local DrivingEmpireDropdown = Games:Dropdown{
+	Name = "Driving empire",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {"Kitty hub"},
+	Callback = function(item)
+		print("Selected script:", item)
+		if item == "Kitty hub" then
+		    loadstring(game:HttpGet("https://whimper.xyz/kitty"))()
+		end
+	end
+}
+
 local EvadeDropdown = Games:Dropdown{
 	Name = "Evade",
 	StartingText = "Select...",
