@@ -171,11 +171,13 @@ local JujutsuInfiniteDropdown = Games:Dropdown{
 	Name = "Jujutsu Infinite",
 	StartingText = "Select...",
 	Description = nil,
-	Items = {"Speed Hub X"},
+	Items = {"Speed Hub X", "Netive"},
 	Callback = function(item)
 		print("Selected script:", item)
 		if item == "Speed Hub X" then
 		    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Jujutsu%20Infinite.lua"))()
+	elseif item == "Native" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/refs/heads/main/Hub/NativeFisch"))()
 		end
 	end
 }
