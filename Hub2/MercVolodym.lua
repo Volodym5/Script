@@ -1,7 +1,7 @@
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/Volodym5/Script/refs/heads/main/Hub2/merc_src.lua"))()
 
 local GUI = Mercury:Create{
-    Name = "Script Hub",
+    Name = "Uranium Hub",
     Size = UDim2.fromOffset(600, 400),
     Theme = Mercury.Themes.Darker,
     Link = "https://github.com/deeeity/mercury-lib"
